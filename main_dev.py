@@ -160,25 +160,6 @@ if "agent" not in st.session_state:
 
 agent = st.session_state.agent
 
-# ================== AUTHENTICATION ==================
-# Initialize session state
-if "authenticated" not in st.session_state:
-    st.session_state.authenticated = False
-
-# Get current user
-user = st.user
-
-# Authentication flow
-if not user or not user.get("is_logged_in", False):
-    st.title("Authentication Module 🔒")
-    st.write("Please login with your Google account to access CHA.")
-
-    if st.button("Authenticate with Google"):
-        st.login("google")
-        st.session_state.authenticated = True
-
-    st.stop()  # stop execution until user logs in
-
 st.badge("Online", icon=":material/check:", color="green")
 st.markdown(
     """
@@ -193,7 +174,7 @@ st.markdown(
 )
 
 # ========== AVATARS ==========
-USER_AVATAR = f"{user['picture']}"
+USER_AVATAR = img_to_base64("assets/logo/CDO Logo.png")
 BOT_AVATAR = "https://png.pngtree.com/png-vector/20230225/ourmid/pngtree-smart-chatbot-cartoon-clipart-png-image_6620453.png"
 
 # ========== DISPLAY CHAT HISTORY ==========
@@ -257,6 +238,7 @@ if prompt := st.chat_input(placeholder="Ask your question..."):
 
     # Save conversation
     st.session_state.messages.append({"role": "assistant", "content": ai_message})
+
 
 
 
