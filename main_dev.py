@@ -18,7 +18,7 @@ load_dotenv()
 
 @st.cache_resource
 def load_model():
-    return ChatGoogleGenerativeAI(model=GOOGLE_GEMINI_MODEL)
+    return ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 @st.cache_resource
 def load_embeddings():
@@ -257,6 +257,7 @@ if prompt := st.chat_input(placeholder="Ask your question..."):
 
     # Save conversation
     st.session_state.messages.append({"role": "assistant", "content": ai_message})
+
 
 
 
