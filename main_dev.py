@@ -14,7 +14,7 @@ import re
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_GEMINI_MODEL = os.getenv("GOOGLE_GEMINI_MODEL")
-os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+# os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 @st.cache_resource
 def load_model():
@@ -257,3 +257,4 @@ if prompt := st.chat_input(placeholder="Ask your question..."):
 
     # Save conversation
     st.session_state.messages.append({"role": "assistant", "content": ai_message})
+
