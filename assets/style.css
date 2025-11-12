@@ -1,0 +1,44 @@
+/* ========== CHAT MESSAGE CONTAINER ========== */
+[data-testid="stChatMessage"] {
+    display: flex !important;
+    align-items: flex-start;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* USER message container — avatar to the right */
+[data-testid="stChatMessage"][data-testid*="user"],
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageContent"] .chat-message-user) {
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* BOT message container — avatar to the left */
+[data-testid="stChatMessage"][data-testid*="assistant"],
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageContent"] .chat-message-bot) {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+}
+
+.chat-message-user {
+    display: flex;
+    justify-content: flex-end;
+    /* background: #dbe2ea; */
+    /* color: white; */
+    border: 1px solid #E0E0E0;
+    border-radius: 18px 0 18px 18px;
+    padding: 10px 16px;
+    margin: 10px 0 10px auto;
+    max-width: 70%; /* ✅ prevents too-wide bubbles */
+    width: fit-content; /* ✅ auto width based on text */
+    /* box-shadow: 0 2px 5px rgba(254, 254, 255, 0.3); */
+    word-wrap: break-word; /* ✅ handle long words */
+    word-break: break-word;
+    white-space: pre-wrap; /* ✅ keep line breaks and wrap text */
+    margin-bottom: 10px;
+}
+
